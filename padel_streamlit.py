@@ -3,30 +3,34 @@ import pandas as pd
 import base64
 import streamlit as st
 
-# URL del logo en GitHub
-logo_url = "https://raw.githubusercontent.com/cbenlloch/code_for_fun/main/logo.png.png"
-
 import streamlit as st
-import streamlit.components.v1 as components
 
 # URL del logo en GitHub
 logo_url = "https://raw.githubusercontent.com/cbenlloch/code_for_fun/main/logo.png.png"
 
-# Aplicar CSS y HTML con st.components.v1.html
-components.html(
+# Aplicar CSS con `st.markdown()` para fijar el logo
+st.markdown(
     f"""
-    <div style="
-        position: fixed;
-        top: 10px;
-        right: 20px;
-        z-index: 100;
-        background-color: white;
-        padding: 5px;
-        border-radius: 10px;">
-        <img src="{logo_url}" width="120">
+    <style>
+        .logo-container {{
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            z-index: 1000; /* Se asegura de que esté por encima de otros elementos */
+            background-color: white; /* Fondo blanco opcional */
+            padding: 5px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.1); /* Agrega sombra ligera */
+        }}
+        .logo-container img {{
+            width: 120px;
+        }}
+    </style>
+    <div class="logo-container">
+        <img src="{logo_url}">
     </div>
     """,
-    height=150,  # Ajusta la altura según necesites
+    unsafe_allow_html=True
 )
 
 
