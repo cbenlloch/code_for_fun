@@ -1,6 +1,26 @@
 import streamlit as st
 import pandas as pd
 
+# Aplicar CSS para fijar el logo en la esquina superior derecha
+st.markdown(
+    """
+    <style>
+        .logo-container {
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            z-index: 100;
+        }
+        .logo-container img {
+            width: 120px; /* Ajusta el tamaño del logo */
+        }
+    </style>
+    <div class="logo-container">
+        <img src="logo.png">
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 # Archivo donde se guardan los resultados
 DATA_FILE_ENJOY = "resultados_enjoy.csv"
 DATA_FILE_ENERGY = "resultados_energy.csv"
