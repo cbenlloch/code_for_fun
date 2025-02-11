@@ -18,7 +18,7 @@ components.html(
         position: fixed;
         top: 10px;
         right: 20px;
-        z-index: 100;
+        z-index: 999;
         background-color: white;
         padding: 5px;
         border-radius: 10px;">
