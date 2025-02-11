@@ -9,7 +9,7 @@ def get_base64(file):
     return base64.b64encode(data).decode()
 
 # Cargar el logo en base64
-logo_base64 = get_base64("logo.png")
+logo_base64 = get_base64("logo.png.png")
 
 # Aplicar CSS para fijar el logo en la esquina superior derecha
 st.markdown(
