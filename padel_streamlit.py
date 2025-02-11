@@ -57,17 +57,20 @@ col1, col2, col3 = st.columns(3)
 
 # Usamos `selectbox` en lugar de `text_input`
 with col1:
-    Pareja1 = st.selectbox("Pareja 1", list(parejas.values()))
+    Pareja1 = st.selectbox("Pareja 1", list(parejas.values()), key="pareja1")
+
+# Filtrar la lista para que Pareja2 no tenga la misma opción que Pareja1
+opciones_pareja2 = [p for p in parejas.values() if p != Pareja1]
 
 with col2:
-    Pareja2 = st.selectbox("Pareja 2", list(parejas.values()))
+    Pareja2 = st.selectbox("Pareja 2", opciones_pareja2, key="pareja2")
 
 with col3:
     resultado = st.text_input("Resultado (Ej: 6-3, 4-6, 10-7)")
 
 # Guardar resultado
 if st.button("Enviar"):
-    if Pareja1 != Pareja2 and resultado:
+    if Pareja1 and Pareja2 and resultado:
         nuevo_resultado = pd.DataFrame([[Pareja1, Pareja2, resultado]], columns=df.columns)
         df = pd.concat([df, nuevo_resultado], ignore_index=True)
         df.to_csv(DATA_FILE, index=False)
@@ -79,4 +82,5 @@ if st.button("Enviar"):
 # Mostrar tabla con los resultados ingresados
 st.header(f"Resultados - {opcion_copa}")
 st.dataframe(df)
+
 
