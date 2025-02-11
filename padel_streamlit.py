@@ -6,29 +6,29 @@ import streamlit as st
 # URL del logo en GitHub
 logo_url = "https://raw.githubusercontent.com/cbenlloch/code_for_fun/main/logo.png.png"
 
-# Aplicar CSS para fijar el logo en la esquina superior derecha
-st.markdown(
+import streamlit as st
+import streamlit.components.v1 as components
+
+# URL del logo en GitHub
+logo_url = "https://raw.githubusercontent.com/cbenlloch/code_for_fun/main/logo.png.png"
+
+# Aplicar CSS y HTML con st.components.v1.html
+components.html(
     f"""
-    <style>
-        .logo-container {{
-            position: fixed;
-            top: 10px;
-            right: 20px;
-            z-index: 100;
-            background-color: white; /* Opcional: Fondo blanco para mejor visibilidad */
-            padding: 5px;
-            border-radius: 10px;
-        }}
-        .logo-container img {{
-            width: 120px;
-        }}
-    </style>
-    <div class="logo-container">
-        <img src="{logo_url}">
+    <div style="
+        position: fixed;
+        top: 10px;
+        right: 20px;
+        z-index: 100;
+        background-color: white;
+        padding: 5px;
+        border-radius: 10px;">
+        <img src="{logo_url}" width="120">
     </div>
     """,
-    unsafe_allow_html=True
+    height=150,  # Ajusta la altura según necesites
 )
+
 
 
   
