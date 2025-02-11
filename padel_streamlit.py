@@ -16,7 +16,7 @@ st.markdown(
         }
     </style>
     <div class="logo-container">
-        <img src="logo.png">
+        st.sidebar.image("logo.png", width=120)
     </div>
     """,
     unsafe_allow_html=True
