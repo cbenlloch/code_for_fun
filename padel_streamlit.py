@@ -1,5 +1,36 @@
 import streamlit as st
 import pandas as pd
+import base64
+
+# Función para convertir la imagen a base64 (para evitar problemas de carga)
+def get_base64(file):
+    with open(file, "rb") as f:
+        data = f.read()
+    return base64.b64encode(data).decode()
+
+# Cargar el logo en base64
+logo_base64 = get_base64("logo.png")
+
+# Aplicar CSS para fijar el logo en la esquina superior derecha
+st.markdown(
+    f"""
+    <style>
+        .logo-container {{
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            z-index: 100;
+        }}
+        .logo-container img {{
+            width: 120px; /* Ajusta el tamaño del logo */
+        }}
+    </style>
+    <div class="logo-container">
+        <img src="data:image/png;base64,{logo_base64}">
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
 # Archivos de datos
 DATA_FILE_ENJOY = "resultados_enjoy.csv"
