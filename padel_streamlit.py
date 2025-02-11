@@ -1,12 +1,35 @@
 import streamlit as st
 import pandas as pd
 import base64
+import streamlit as st
 
 # URL del logo en GitHub
 logo_url = "https://raw.githubusercontent.com/cbenlloch/code_for_fun/main/logo.png.png"
 
-# Mostrar el logo en la app
-st.image(logo_url, width=120)
+# Aplicar CSS para fijar el logo en la esquina superior derecha
+st.markdown(
+    f"""
+    <style>
+        .logo-container {{
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            z-index: 100;
+            background-color: white; /* Opcional: Fondo blanco para mejor visibilidad */
+            padding: 5px;
+            border-radius: 10px;
+        }}
+        .logo-container img {{
+            width: 120px;
+        }}
+    </style>
+    <div class="logo-container">
+        <img src="{logo_url}">
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
 
   
 # Archivos de datos
