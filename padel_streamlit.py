@@ -6,10 +6,6 @@ import streamlit.components.v1 as components
 
 # URL del logo en GitHub
 logo_url = "https://raw.githubusercontent.com/cbenlloch/code_for_fun/main/logo.png.png"
-
-
-
-
   
 # Archivos de datos
 DATA_FILE_ENJOY = "resultados_enjoy.csv"
@@ -62,7 +58,7 @@ st.markdown(
 st.sidebar.markdown(
     f"""
     <div class="sidebar-logo">
-        <img src="{logo_url}" width="150">
+        <img src="{logo_url}" width="180">
     </div>
     """,
     unsafe_allow_html=True
