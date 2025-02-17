@@ -7,22 +7,6 @@ import streamlit.components.v1 as components
 # URL del logo en GitHub
 logo_url = "https://raw.githubusercontent.com/cbenlloch/code_for_fun/main/logo.png.png"
 
-# Aplicar CSS y HTML con st.components.v1.html
-components.html(
-    f"""
-    <div style="
-        position: fixed;
-        top: 10px;
-        right: 20px;
-        z-index: 999;
-        background-color: white;
-        padding: 5px;
-        border-radius: 10px;">
-        <img src="{logo_url}" width="120">
-    </div>
-    """,
-    height=150,  # Ajusta la altura según necesites
-)
 
 
 
@@ -55,6 +39,16 @@ def cargar_datos(file):
         return pd.read_csv(file)
     except FileNotFoundError:
         return pd.DataFrame(columns=["Pareja 1", "Pareja 2", "Resultado"])
+        
+# Agregar el logo en la barra lateral
+st.sidebar.markdown(
+    f"""
+    <div style="text-align: center;">
+        <img src="{logo_url}" width="150">
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
 # Sidebar con selector de copa
 st.sidebar.title("🏆 Selección de Copa")
