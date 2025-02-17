@@ -38,12 +38,30 @@ def cargar_datos(file):
     try:
         return pd.read_csv(file)
     except FileNotFoundError:
-        return pd.DataFrame(columns=["Pareja 1", "Pareja 2", "Resultado"])
-        
-# Agregar el logo en la barra lateral
+        return pd.DataFrame(columns=["Pareja 1", "Pareja 2", "Resultado"])       
+
+# Aplicar estilos CSS para centrar y dar mejor aspecto a la barra lateral
+st.markdown(
+    """
+    <style>
+    [data-testid="stSidebar"] {
+        background-color: #f0f0f0;  /* Color de fondo gris */
+    }
+    .sidebar-logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 0; /* Espaciado arriba y abajo */
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# Agregar el logo en la barra lateral y centrarlo correctamente
 st.sidebar.markdown(
     f"""
-    <div style="text-align: center;">
+    <div class="sidebar-logo">
         <img src="{logo_url}" width="150">
     </div>
     """,
